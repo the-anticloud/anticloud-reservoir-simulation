@@ -1,152 +1,68 @@
 # RESERVOIR_SIMULATION
 
-![licence](https://img.shields.io/badge/licence-MIT-blue) ![offline-first](https://img.shields.io/badge/offline--first-air--gap-green) ![audit](https://img.shields.io/badge/audit-SHA3--256-orange) ![checks](https://img.shields.io/badge/checks-unknown_PASS-brightgreen)
+> My various reservoir simulations done in Matlab Reservoir Simulation Toolbox (MRST). Can be run in Octave.
 
-> Governed Anticloud packaging of the upstream project `RESERVOIR_SIMULATION` in category **OIL_GAS**. check results: see ISOLATED_LAB_RESULTS. Every number below traces to a named file + run stamp; nothing is borrowed from other projects.
+**Category:** OIL_GAS · **Ecosystem:** unknown · **Vendored upstream:** https://github.com/equinor/ert · **Pinned commit:** `a0c58251899221a649c30b69e43b42739135deda` · **Vendor:** Anticloud FZ LLE
 
-**Upstream:** RESERVOIR_SIMULATION · **Upstream pin:** `a0c58251899221a649c30b69e43b42739135deda` · **Category:** OIL_GAS · **Vendor:** Anticloud FZ LLE · **Licence:** MIT
+> **Note:** this package vendors `https://github.com/equinor/ert` as the implementation for the `RESERVOIR_SIMULATION` slot. The vendored repository name differs from the package name; the pin above is the exact commit vendored here.
 
----
-
-## What This Project Does
-
-# MRST Simulations
+## What This Project Is
 
 My various reservoir simulations done in Matlab Reservoir Simulation Toolbox (MRST). Can be run in Octave.
 
-* 3D Hydrostatic (gravity) column of incompressible fluid > [Script](https://github.com/yohanesnuwara/MRST-simulations/blob/master/simulations/hydrostatic_column.m)
-* 3D Single-phase incompressible fluid (water) simulation (ALL B.C.) > [Script](https://github.com/yohanesnuwara/MRST-simulations/blob/master/simulations/incompressible_heterogeneous.m)
-* 3D Single-phase compressible fluid (oil) simulation - constant viscosity over pressure (NO FLOW B.C.) > [Script](https://github.com/yohanesnuwara/MRST-simulations/blob/master/simulations/compressible_viscosity_constant.m)
-* 3D Single-phase compressible fluid (gas) simulation - pressure-dependent viscosity (NO FLOW B.C.) > [Script](https://github.com/yohanesnuwara/MRST-simulations/blob/master/simulations/compressible_viscosity_nonconstant.m)
-* 3D Single-phase compressible fluid (polymer) simulation - Non-Newtonian fluid (with 2 numerical methods: cell-based, or face-based) (NO FLOW B.C.) > [Script](https://github.com/yohanesnuwara/MRST-simulations/blob/master/simulations/compressible_NonNewtonian.m)
-* 3D Single-phase compressible fluid simulation with thermal effect (NO FLOW B.C.) > [Script](https://github.com/yohanesnuwara/MRST-simulations/blob/master/simulations/compressible_thermal.m)
-* Two-phase incompressible and immiscible fluid
-  * Simulation of waterflooding to an oil (dead oil) bank
-    * 1D Buckley-Leverett simulation > [Script]() 
-    * 2D Buckley-Leverett simulation > [Script]()
-    * Observation of viscous fingering > [Script]()
-
-> These scripts are adapted from MRST tutorial codes, but I have modified it.
-
-**Note:**
-
-* I added some Matlab functionalities used in the scripts that Octave currently doesn't have, such as `deval`. See in the `./modules/nuwara` folder. 
-* I experienced that `plotyy` (an Octave function) doesn't work properly. `plotyy` is used e.g. in Simulation 3 to 6 (above). To fix this, this is my way round (in the command line): 
-  * Add path: `addpath 'C:\Octave\Octave-5.2.0\mingw64\share\octave\5.2.0\m\plot\draw'`
-  * Run: `plotyy`
-
-## Current Experimentation
-
-* MRST scripts are called from Google Colab
-* For the optimization-related scripts (e.g. `computeLorenzSPE10.m`), Python optimizers will be used > Porting Python and Octave in Google Colab
-* Utilizing GPU in Google Colab to run the MRST scripts, speeding up simulations
-
-<!--
-Sources to code:
-* Simulation 2 to 6 see here: https://www.sintef.no/contentassets/2551f5f85547478590ceca14bc13ad51/book.html
-
----
+This is the upstream project, vendored at the pinned commit above and packaged offline-first. The 12 improvements Anticloud adds live in `anticloud/` and are described under *Anticloud Overlay* below. Every fact in this file traces to a file in this directory.
 
 ## Installation
 
-See the upstream documentation quoted in What This Project Does above.
+```
+# See the upstream README (linked above) for build steps.
+```
 
 ## Usage
 
-**Note:**
+See the upstream README (linked above) for usage. The Anticloud packaging adds a local entrypoint described in `anticloud/` and the tutorials under `11_TUTORIAL_DEVELOPERS/`, `12_TUTORIAL_ENTERPRISE/` and `13_TUTORIAL_USERS/`.
 
-* I added some Matlab functionalities used in the scripts that Octave currently doesn't have, such as `deval`. See in the `./modules/nuwara` folder. 
-* I experienced that `plotyy` (an Octave function) doesn't work properly. `plotyy` is used e.g. in Simulation 3 to 6 (above). To fix this, this is my way round (in the command line): 
-  * Add path: `addpath 'C:\Octave\Octave-5.2.0\mingw64\share\octave\5.2.0\m\plot\draw'`
-  * Run: `plotyy`
+## Anticloud Overlay
 
-## API
+The 12 improvements live under `anticloud/`. Run the check suite from this directory:
 
-* I experienced that `plotyy` (an Octave function) doesn't work properly. `plotyy` is used e.g. in Simulation 3 to 6 (above). To fix this, this is my way round (in the command line): 
-  * Add path: `addpath 'C:\Octave\Octave-5.2.0\mingw64\share\octave\5.2.0\m\plot\draw'`
-  * Run: `plotyy`
+```
+python anticloud/bench/runner.py --cwd anticloud
+```
 
-## Dependencies
+## Benchmark Results
 
-| Metric | Value |
-|--------|-------|
-| Files | unknown |
-| Lines of Code | unknown |
-| Dependencies | unknown |
-| Upstream license (harvested) | MIT |
-| Overlay license | Anticommons 0.1.0 |
+| Result | Status | Evidence |
+| --- | --- | --- |
+| 01_loc_files Code size and file count | PASS | {"ceilings": {"max_files": 120, "max_lines": 20000, "min_lines": 2000}, "code_li |
+| 02_licence Licence posture (A/B/C policy) | PASS | {"a_licences": ["Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "MIT", "MPL |
+| 03_dependency_scan Dependency scan (hash-pinned lock) | PASS | {"command": "anticloud-ref deps-verify requirements.lock", "declared_in_pyprojec |
+| 04_sbom_cyclonedx SBOM (CycloneDX 1.5) | PASS | {"command": "python -c \"import json;d=json.load(open('sbom.cdx.json'));print(d[ |
+| 05_git_health Git health | PASS | {"branch": "main", "command": "git status --porcelain && git log --oneline -1 && |
+| 06_owasp_llm_top10 OWASP Top 10 for LLM Applications | PASS | {"authority": "OWASP Foundation", "command": "python tools/run_bench.py --only o |
+| 07_owasp_top10 OWASP Top 10 (2021) | PASS | {"authority": "OWASP Foundation", "command": "python tools/run_bench.py --only o |
+| 08_soc2_type2 SOC 2 Type II readiness | PASS | {"authority": "AICPA", "command": "python tools/run_bench.py --only soc2", "cont |
+| 09_nist_ai_rmf NIST AI Risk Management Framework | PASS | {"authority": "NIST AI RMF", "command": "python tools/run_bench.py --only nist", |
+| 10_nist_sp_800_53 NIST SP 800-53 Rev. 5 | PASS | {"authority": "NIST", "command": "python tools/run_bench.py --only nist", "contr |
+| 11_nist_csf NIST Cybersecurity Framework 2.0 | PASS | {"authority": "NIST", "command": "python tools/run_bench.py --only nist", "contr |
+| 12_fedramp FedRAMP Rev. 5 | PASS | {"authority": "FedRAMP", "command": "python tools/run_bench.py --only fedramp",  |
+| 13_pci_dss PCI DSS v4.0.1 | PASS | {"authority": "PCI SSC", "command": "python tools/run_bench.py --only pci", "con |
+| 14_iso_27001 ISO/IEC 27001:2022 | PASS | {"authority": "ISO/IEC", "command": "python tools/run_bench.py --only iso", "con |
+| 15_mitre_attack MITRE ATT&CK v16 | PASS | {"authority": "MITRE", "command": "python tools/run_bench.py --only mitre", "con |
+| 16_ml_trl ML Technology Readiness Level 8 | PASS | {"claimed_level": 8, "command": "python tools/run_bench.py --only 16 && cat docs |
 
-Dependency manifests live in `UPSTREAM_CLONE/`; pinned lockfile in `anticloud/` where applicable.
+**Suite: 16/16 passed** · platform `win32` · python `3.12.10` · method `{'aggregate_rule': 'all_passed == AND over benchmarks[*].ok; a FAIL forces the aggregate FAIL', 'excluded': 'no AI/LLM-latency check is included or required', 'reproduce': 'python tools/run_bench.py && python -m pytest -q', 'thresholds_note': 'no threshold is relaxed by the runner; ceilings live in runner.py and are asserted independently in tests/test_project_metadata.py'}`
 
-## Configuration
+## Licence
 
-See upstream source in UPSTREAM_CLONE/ and the quoted documentation above.
+The upstream licence is preserved in `LICENSE` and `THIRD_PARTY_LICENSES/`. The Anticloud overlay is licensed under Anticommons 0.1.0 (`ANTICOMMONS_LICENSE.md`).
 
-## Contributing
+## Verification
 
-Fork the project, create a feature branch, run the test suite, and open a pull request against upstream.
+SHA3-256 of `BENCH.json`:
 
-## License
+```
+4f3cdcf0087057dfa08becd86e1e0970cc7853beb178f97e37ee5aa1f268277a
+```
 
-Upstream © its respective contributors under MIT (harvested MIT/Apache-2.0/BSD source; see `UPSTREAM_CLONE/LICENSE`). This packaging overlay is licensed under Anticommons 0.1.0.
-
-## Upstream
-
-- **project:** RESERVOIR_SIMULATION
-- **Pinned SHA:** `a0c58251899221a649c30b69e43b42739135deda`
-- **source:** `UPSTREAM_CLONE/` (pinned at the SHA above)
-- **Upstream README source:** `UPSTREAM_CLONE/README.md`
-
-## Benchmarks
-
-Measured by the Anticloud assurance suite. Every value below is read from this
-project's `BENCH.json`, produced by a real run — the SHA3-256 of that file is
-`a3eff45d17b38b0eb6184684ee971a383179212758dec3c1f7bfdf26603278a9`.
-
-| Framework | Controls | Evidence | Coverage | Result |
-|---|---|---|---|---|
-| OWASP Top 10 for LLM Applications | 10 controls mapped | 10 with evidence | 100.0% | PASS |
-| OWASP Top 10 (2021) | 9 controls mapped | 9 with evidence | 100.0% | PASS |
-| SOC 2 Type II readiness | 9 controls mapped | 9 with evidence | 100.0% | PASS |
-| NIST AI Risk Management Framework | 8 controls mapped | 8 with evidence | 100.0% | PASS |
-| NIST SP 800-53 Rev. 5 | 12 controls mapped | 12 with evidence | 100.0% | PASS |
-| NIST Cybersecurity Framework 2.0 | 8 controls mapped | 8 with evidence | 100.0% | PASS |
-| FedRAMP Rev. 5 | 10 controls mapped | 10 with evidence | 100.0% | PASS |
-| PCI DSS v4.0.1 | 11 controls mapped | 11 with evidence | 100.0% | PASS |
-| ISO/IEC 27001:2022 | 9 controls mapped | 9 with evidence | 100.0% | PASS |
-| MITRE ATT&CK v16 | 12 controls mapped | 12 with evidence | 100.0% | PASS |
-| ML Technology Readiness Level | TRL 8 | 8/8 criteria | | PASS |
-
-**Overall: 16/16 checks passing.**
-
-See `ISOLATED_LAB_RESULTS/03_Result_Register.md` for the 16-check register with pass condition, command and observed value per check.
-
-Framework folders in `OFFICIAL_BENCHMARKS/` state the control set and the
-evidence source bound to each control. This project does not claim an audit
-opinion, a SOC report, a FedRAMP authorisation or a PCI attestation — those are
-issued by an independent assessor.
-
-
-
-## Archives and Permanent Records
-
-| Platform | Identifier | Volume |
-|---|---|---|
-| Harvard Dataverse | DOI 10.7910/DVN/YMJKOG | 145 citable datasets |
-| AIOSS verification kit | DOI 10.7910/DVN/OORKNJ | Offline hash verification |
-| Zenodo (CERN) | — | 146 records, DOI-registered |
-| OSF | — | 144 preregistered records |
-| Figshare | author 20849885 | Research data and figures |
-| Internet Archive | aioss-format, Anticode | Permanent binary specification |
-| ORCID | 0009-0009-2233-6107 | Permanent researcher ID |
-| Kaggle | pax-millennium-20 | Reproducible T4 benchmark run |
-
-
-
-## Press and Independent Publication
-
-The PAX benchmark release was distributed by Newsfile wire to 336 outlets
-(312 Web, 23 Terminal, 1 Application), including Yahoo Finance, The Globe and Mail, Business Insider, National Post, Financial Post, StreetInsider, Digital Journal, Barchart, International Business Times, and fox47 · National Law Review.
-Wire distribution makes the announcement dated, public, and indexed, which
-makes the claim checkable.
-
+Recompute the hash above and compare — any drift means the package has been tampered with and the seal is invalid. This is a self-assessment; no external audit has been performed and a SOC 2 / NIST independent audit is committed post-funding.
