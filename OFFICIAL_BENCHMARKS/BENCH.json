@@ -1,0 +1,458 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "RESERVOIR_SIMULATION",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\OIL_GAS\\RESERVOIR_SIMULATION\\UPSTREAM_CLONE",
+    "git": {
+      "head": "eb2bcb7cef9ed23e1d5104b12d3ce1f5c8f114b5",
+      "url": "https://github.com/yohanesnuwara/reservoir-simulation",
+      "branch": "master",
+      "committed_at": "2021-02-17T13:34:17+07:00"
+    }
+  },
+  "metrics": {
+    "files_total": 161,
+    "source_files_scanned": 113,
+    "lines_of_code": 17703,
+    "languages": {
+      ".m": 113,
+      ".grdecl": 20,
+      "(none)": 12,
+      ".txt": 7,
+      ".dat": 4,
+      ".ipynb": 2,
+      ".md": 1,
+      ".data": 1,
+      ".zip": 1
+    }
+  },
+  "licence": {
+    "spdx": "MIT",
+    "class": "A",
+    "source_file": "LICENSE",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 0,
+    "unique": 0,
+    "by_ecosystem": {},
+    "list": []
+  },
+  "owasp_top10": {
+    "total_findings": 115,
+    "files_with_findings": 103,
+    "severity": {
+      "high": 6,
+      "medium": 0,
+      "low": 109
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A03-Injection": {
+        "count": 6,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "simulations/buckleyLeverett1D.m",
+            "line": 51,
+            "cwe": "CWE-120",
+            "snippet": "leg{k+1} = sprintf('n=%3d: %3d its',n(k),its(k));"
+          },
+          {
+            "severity": "high",
+            "file": "simulations/buckleyLeverett2D.m",
+            "line": 112,
+            "cwe": "CWE-120",
+            "snippet": "title(sprintf('t=%.2f PVI',n*.2));"
+          },
+          {
+            "severity": "high",
+            "file": "modules/nuwara/incomp/transport/private/newtonRaphson2ph.m",
+            "line": 241,
+            "cwe": "CWE-120",
+            "snippet": "str = sprintf([..."
+          },
+          {
+            "severity": "high",
+            "file": "modules/nuwara/incomp/examples/2ph/incompTutorialGravCol2ph.m",
+            "line": 75,
+            "cwe": "CWE-120",
+            "snippet": "title(sprintf('%.2f days', t/day));"
+          },
+          {
+            "severity": "high",
+            "file": "modules/incomp/transport/private/newtonRaphson2ph.m",
+            "line": 241,
+            "cwe": "CWE-120",
+            "snippet": "str = sprintf([..."
+          },
+          {
+            "severity": "high",
+            "file": "modules/incomp/examples/2ph/incompTutorialGravCol2ph.m",
+            "line": 75,
+            "cwe": "CWE-120",
+            "snippet": "title(sprintf('%.2f days', t/day));"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 8,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/computeTransportSourceTerm.m",
+            "line": 89,
+            "cwe": "CWE-",
+            "snippet": "% TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/twophaseJacobian.m",
+            "line": 77,
+            "cwe": "CWE-",
+            "snippet": "% TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/twophaseUpwBEGrav.m",
+            "line": 84,
+            "cwe": "CWE-",
+            "snippet": "% TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/twophaseUpwFEGrav.m",
+            "line": 86,
+            "cwe": "CWE-",
+            "snippet": "% TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "modules/incomp/transport/private/computeTransportSourceTerm.m",
+            "line": 89,
+            "cwe": "CWE-",
+            "snippet": "% TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "modules/incomp/transport/private/twophaseJacobian.m",
+            "line": 77,
+            "cwe": "CWE-",
+            "snippet": "% TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "modules/incomp/transport/private/twophaseUpwBEGrav.m",
+            "line": 84,
+            "cwe": "CWE-",
+            "snippet": "% TODO:"
+          },
+          {
+            "severity": "low",
+            "file": "modules/incomp/transport/private/twophaseUpwFEGrav.m",
+            "line": 86,
+            "cwe": "CWE-",
+            "snippet": "% TODO:"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 0,
+        "findings": []
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 101,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/checkDrivingForcesIncomp.m",
+            "line": 40,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/computeFacePressure.m",
+            "line": 57,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/computeIncompWellPressureDrop.m",
+            "line": 49,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/computePressureRHS.m",
+            "line": 87,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/incompTPFA.m",
+            "line": 149,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/treatLegacyForceOptions.m",
+            "line": 21,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/Contents.m",
+            "line": 23,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/explicitTransport.m",
+            "line": 105,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/implicitTransport.m",
+            "line": 132,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/assembleTransportSource.m",
+            "line": 55,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/computeTransportSourceTerm.m",
+            "line": 108,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/Contents.m",
+            "line": 29,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/initFaceMob.m",
+            "line": 59,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/initTransport.m",
+            "line": 110,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/newtonRaphson2ph.m",
+            "line": 47,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/twophaseJacobian.m",
+            "line": 97,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/twophaseUpwBE.m",
+            "line": 105,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/twophaseUpwBEGrav.m",
+            "line": 103,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/twophaseUpwFE.m",
+            "line": 78,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/transport/private/twophaseUpwFEGrav.m",
+            "line": 105,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/fluid/Contents.m",
+            "line": 22,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/fluid/fluid_structure.m",
+            "line": 108,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/fluid/utils/constantProperties.m",
+            "line": 41,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/fluid/utils/Contents.m",
+            "line": 24,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          },
+          {
+            "severity": "low",
+            "file": "modules/nuwara/incomp/fluid/utils/getIncompCapillaryPressure.m",
+            "line": 20,
+            "cwe": "CWE-319",
+            "snippet": "along with MRST.  If not, see <http://www.gnu.org/licenses/>."
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 0,
+    "files_with_findings": 0,
+    "severity": {
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:02d10962-42e0-5a96-9d22-3160be8672ca",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-06T06:03:16Z",
+      "component": {
+        "type": "application",
+        "name": "RESERVOIR_SIMULATION",
+        "version": "eb2bcb7cef9e",
+        "bom-ref": "pkg:generic/anticloud/RESERVOIR_SIMULATION@eb2bcb7cef9e",
+        "purl": "pkg:generic/anticloud/RESERVOIR_SIMULATION@eb2bcb7cef9e",
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "eb2bcb7cef9ed23e1d5104b12d3ce1f5c8f114b5"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/yohanesnuwara/reservoir-simulation"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": []
+  },
+  "elapsed_seconds": 11.77
+}
