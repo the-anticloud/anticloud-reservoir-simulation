@@ -1,26 +1,46 @@
 # RESERVOIR_SIMULATION
 
-> My various reservoir simulations done in Matlab Reservoir Simulation Toolbox (MRST). Can be run in Octave.
+> Machine learning framework for reservoir simulation. * reservoir representation with Grid, Rock, States, Wells, Aquifer and PVT-tables components * interactive 3D visualization with some advanced options * common reservoir preprocessing tools * working with arbitrary large datasets of field simulations * constructor of neural network models * generative models for field augmentation * various model training scenarios for arbitrary long simulation periods * detailed [documentation](https://Skoltech-CHR.github.io/DeepField) and step-by-step [tutorials](/tutorials)
 
-**Category:** OIL_GAS · **Ecosystem:** unknown · **Vendored upstream:** https://github.com/equinor/ert · **Pinned commit:** `a0c58251899221a649c30b69e43b42739135deda` · **Vendor:** Anticloud FZ LLE
+**Category:** OIL_GAS · **Ecosystem:** unknown · **Vendored upstream:** https://github.com/Skoltech-CHR/DeepField · **Pinned commit:** `383e9db15a0f34e51a4eca73e2630d513c399a84` · **Vendor:** Anticloud FZ LLE
 
-> **Note:** this package vendors `https://github.com/equinor/ert` as the implementation for the `RESERVOIR_SIMULATION` slot. The vendored repository name differs from the package name; the pin above is the exact commit vendored here.
+> **Note:** this package vendors `https://github.com/Skoltech-CHR/DeepField` as the implementation for the `RESERVOIR_SIMULATION` slot. The vendored repository name differs from the package name; the pin above is the exact commit vendored here.
 
 ## What This Project Is
 
-My various reservoir simulations done in Matlab Reservoir Simulation Toolbox (MRST). Can be run in Octave.
+Machine learning framework for reservoir simulation. * reservoir representation with Grid, Rock, States, Wells, Aquifer and PVT-tables components * interactive 3D visualization with some advanced options * common reservoir preprocessing tools * working with arbitrary large datasets of field simulations * constructor of neural network models * generative models for field augmentation * various model training scenarios for arbitrary long simulation periods * detailed [documentation](https://Skoltech-CHR.github.io/DeepField) and step-by-step [tutorials](/tutorials)
 
 This is the upstream project, vendored at the pinned commit above and packaged offline-first. The 12 improvements Anticloud adds live in `anticloud/` and are described under *Anticloud Overlay* below. Every fact in this file traces to a file in this directory.
 
 ## Installation
 
+Clone the repository:
+
+    git clone https://github.com/Skoltech-CHR/DeepField.git
+
+Working with a remote server, it is recommended to install
+VNC for remote rendering of 3D graphics (follow this [instruction](./vnc/README.md))
+
+Another option is to build the docker image with DeepField inside.
+Instructions and dockerfile are provided in the [docker](./docker) directory.
+
 ```
-# See the upstream README (linked above) for build steps.
+Note: the project is in developement. We welcome contributions and collaborations.
 ```
 
 ## Usage
 
-See the upstream README (linked above) for usage. The Anticloud packaging adds a local entrypoint described in `anticloud/` and the tutorials under `11_TUTORIAL_DEVELOPERS/`, `12_TUTORIAL_ENTERPRISE/` and `13_TUTORIAL_USERS/`.
+Load a reservoir model from `.DATA` file:
+
+```python
+
+  from deepfield import Field
+
+  model = Field('model.data').load()
+```
+
+See the [tutorials](./tutorials) to explore the framework step-by-step
+and the [documentation](https://Skoltech-CHR.github.io/DeepField) for more details.
 
 ## Anticloud Overlay
 
@@ -62,7 +82,7 @@ The upstream licence is preserved in `LICENSE` and `THIRD_PARTY_LICENSES/`. The 
 SHA3-256 of `BENCH.json`:
 
 ```
-4f3cdcf0087057dfa08becd86e1e0970cc7853beb178f97e37ee5aa1f268277a
+ddcb57d8a28839e72b90568f11f3712de2c3e0d513bfd94b91690849dd99b023
 ```
 
 Recompute the hash above and compare — any drift means the package has been tampered with and the seal is invalid. This is a self-assessment; no external audit has been performed and a SOC 2 / NIST independent audit is committed post-funding.

@@ -540,10 +540,11 @@
  "version": "1.0.0",
  "source": {
   "git": {
-   "head": "a0c58251899221a649c30b69e43b42739135deda",
-   "url": "https://github.com/equinor/ert",
+   "url": "https://github.com/Skoltech-CHR/DeepField",
+   "head": "383e9db15a0f34e51a4eca73e2630d513c399a84",
    "branch": "main",
-   "sha_verified_from": "GitHub API commits/main | unified 2026-10-14 (API-exists + content/clone anchor)"
+   "sha_verified_from": "permissive resolve 2026-10-16: MIT/Apache genre match",
+   "previous_upstream": "https://github.com/equinor/ert"
   }
  },
  "license": "GPL-3.0",
