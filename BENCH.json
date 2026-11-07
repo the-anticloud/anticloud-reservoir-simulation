@@ -543,8 +543,8 @@
    "url": "https://github.com/Skoltech-CHR/DeepField",
    "head": "383e9db15a0f34e51a4eca73e2630d513c399a84",
    "branch": "main",
-   "sha_verified_from": "permissive resolve 2026-10-16: MIT/Apache genre match",
-   "previous_upstream": "https://github.com/equinor/ert"
+   "sha_verified_from": "permissive resolve 2026-10-16: MIT/Apache genre match (local vendor 20261107T163740Z); LFS objects not fetchable (repo LFS budget exceeded) - 1 LFS pointer stubs vendored as-is",
+   "previous_upstream": "https://github.com/Skoltech-CHR/DeepField"
   }
  },
  "license": "GPL-3.0",
